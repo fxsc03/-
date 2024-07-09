@@ -56,17 +56,13 @@ void dfs(int k)
         if(num[i]==4)
         {
             num[i]=0;
-            dfs(k+1);
-            num[i]=4;//炸弹 
-            
-            num[i]=0;
             for(int j=2;j<=15;j++)
             {
                 if(num[j]==0||j==i) continue;
                 num[j]--;
                 for(int s=2;s<=15;s++)
                 {
-                    if(num[s]==0||s==j) continue;
+                    if(num[s]==0) continue;
                     num[s]--;
                     dfs(k+1);
                     num[s]++;
@@ -82,7 +78,7 @@ void dfs(int k)
                 num[j]-=2;
                 for(int s=2;s<=14;s++)
                 {
-                    if(num[s]<2||s==j) continue;
+                    if(num[s]<2) continue;
                     num[s]-=2;
                     dfs(k+1);
                     num[s]+=2;
@@ -151,8 +147,7 @@ void dfs(int k)
 }
 int main()
 {
-    //freopen("in.txt","r",stdin);
-    //freopen("out.txt","w",stdout);
+	freopen("test.in","r",stdin); freopen("test.out","w",stdout);
     scanf("%d%d",&T,&n);
     while(T--)
     {
