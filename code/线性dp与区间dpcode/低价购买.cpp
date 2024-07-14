@@ -21,7 +21,8 @@ int main(){
 
             if(a[j]==a[i])f[j]=t[j]=0;
 
-            
+
+
         }
         
         ans=max(ans,f[i]);

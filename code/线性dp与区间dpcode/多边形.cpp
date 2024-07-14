@@ -26,8 +26,12 @@ int main()
             }
             else
             {
-                f1[i][j]=max(f1[i][j],max(f1[i][k]*f1[k+1][j],f2[i][k]*f2[k+1][j]));
-                f2[i][j]=min(f2[i][j],min(f2[i][k]*f2[k+1][j],min(f1[i][k]*f2[k+1][j],f2[i][k]*f1[k+1][j])));
+                int tmp1 = max(f1[i][k]*f1[k+1][j],f2[i][k]*f2[k+1][j]); 
+                int tmp2 = max(f1[i][k]*f2[k+1][j],f2[i][k]*f1[k+1][j]);
+                int tmp3 = min(f1[i][k]*f1[k+1][j],f2[i][k]*f2[k+1][j]); 
+                int tmp4 = min(f1[i][k]*f2[k+1][j],f2[i][k]*f1[k+1][j]);
+                f1[i][j]=max(tmp1,tmp2);
+                f2[i][j]=min(tmp3,tmp4);
             }
         }
     }
